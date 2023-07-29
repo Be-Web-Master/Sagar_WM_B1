@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #e7e9eb;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  padding-left: 30px;
+  font-size: 20px;
+  background-color: transparent;
+}
+.drawer {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s ease-in;
+}
+button {
+  width: fit-content;
+  height: fit-content;
+  background-color: #0069d9;
+  border-radius: 3px;
+  color: rgb(255, 255, 255);
+  margin-left: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+}
+
+button:hover {
+    scale: 1.1;
+    background-color: #c82333;
+    border-bottom: 2px solid black;
+  } 
+.btn-left {
+  position: relative;
+  top: 42%;
+  left: 30%;
+}
+.btn-top {
+  position: relative;
+  top: 42%;
+  left: 30%;
+}
+.btn-right {
+  position: relative;
+  top: 42%;
+  left: 30%;
+}
+.btn-bottom {
+  position: relative;
+  top: 42%;
+  left: 30%;
+}
+
+.left {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  left: -30%;
+  top: 0%;
+}
+ .btn-left:hover ~ .left {
+  left: 0;
+}
+.top {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: -30%;
+  left: 0%;
+}
+.btn-top:hover ~ .top {
+  top: 0;
+}
+.right {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  right: -30%;
+  top: 0%;
+}
+.btn-right:hover ~ .right {
+  right: 0;
+}
+.bottom {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  bottom: -30%;
+  left: 0%;
+}
+.btn-bottom:hover ~ .bottom {
+  bottom: 0;
+}
