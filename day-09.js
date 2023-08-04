@@ -46,4 +46,5 @@ const obj = {
 
 for (const key in obj){
     console.log(key)
-}snippet:///day-09-3.js
+}
+// snippet:///day-09-3.js
