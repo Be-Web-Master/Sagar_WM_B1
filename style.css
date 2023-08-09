@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    gap: 5px;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
+
+    > header{
+        background-color: violet;
+        grid-column: 1 / span 11;
+    }
+    > nav{
+   grid-row: 2/ span 8;
+   grid-column: 1/span 2;
+   background-color: red;
+    }
+    > article{
+        
+
+   grid-row: 2/ span 8;
+   grid-column: 3/span 5;
+   background-color: yellow;
+    }
+    > aside{
+        
+        grid-row: 2/ span 8;
+        grid-column:8/span 3;
+        background-color: salmon;
+         }
+         > footer{
+            grid-row: 10/ span 1;
+            grid-column:1/span 10;
+            background-color: green;
+             }
+}
