@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  /* color: white; */
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  > li {
+    padding: 20px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  > nav {
+    background-color: #ff9899;
+    padding: 0 auto;
+  }
+
+  > .container {
+    display: flex;
+    > .left-container {
+      background-color: #c0c7fe;
+      flex-basis: 300px;
+      padding: 20px 70px 200px 70px;
+      > ul {
+        display: flex;
+        flex-direction: column;
+        > li {
+          margin: 10px;
+          padding: 20px;
+        }
+      }
+    }
+    
+    > .right-container {
+      padding-top: 100px;
+      height: 70vh;
+      overflow: scroll;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      margin: auto;
+      > .circle {
+        width: 100px;
+        height: 100px !important;
+        display: block;
+        border-radius: 75px;
+        background-color: red;
+      }
+      > .pink-rectangle-box {
+        background-color: #ff9899;
+        width: 50vw;
+        padding:30px;
+        text-align: center;
+      }
+      > .small-cards{
+        background-color: #B7F3FE;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        > .small-card{
+          margin: 10px;
+          background-color: #BABABA;
+          width: 100px;
+          height: 100px;
+        }
+      }
+      > .big-cards{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        > .big-card{
+          margin: 10px;
+          background-color: #FFEBB8;
+          width: 160px;
+          height: 200px;
+        }
+    }
+  }
+  /* > .right-container::-webkit-scrollbar{
+    display: none;
+  } */
+
+}
+#ring {
+  width: 100px;
+  height: 100px;
+  display: block;
+  border-radius: 75px;
+  background-color: red;
+  color: transparent;
+}
+
+}
+footer {
+  background-color: #ff9899;
+}
+@media (max-width:770px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+@media (max-width:423px) {
+  li {
+    padding: 10px !important;
+  }
+  .small-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .big-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}
