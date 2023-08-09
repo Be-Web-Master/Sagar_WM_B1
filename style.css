@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+  gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+
+  > header {
+    grid-column: 1 / span 10;
+    background-color: salmon;
+  }
+  > nav {
+    grid-column: 1 / span 3;
+    grid-row: 2 / span 8;
+    background-color: violet;
+  }
+  > aside {
+    grid-column: 4 / span 7;
+    grid-row: 2 / span 8;
+    /* background-color: red; */
+  }
+  > footer {
+    grid-column: 1 / span 10;
+    background-color: salmon;
+  }
+  > .empty {
+    background-color: blueviolet;
+    grid-column: 4 / span 7;
+    grid-row: 2 / span 1;
+  }
+  > .card {
+    background-color: rgb(119, 107, 131);
+    grid-column: 4 / span 7;
+    grid-row: 3 / span 3;
+  }
+  > .card1 {
+    margin: 20px;
+    background-color: salmon;
+    grid-column: 4 / span 2;
+    grid-row: 3 / span 3;
+  }
+  > .card2 {
+    margin: 20px;
+    background-color: salmon;
+    grid-column: 6 / span 3;
+    grid-row: 3 / span 3;
+  }
+  > .card3 {
+    margin: 20px;
+    background-color: salmon;
+    grid-column: 9 / span 2;
+    grid-row: 3 / span 3;
+  }
+  > .rectangle {
+    background-color: violet;
+    grid-column: 4 / span 7;
+    grid-row: 6 / span 2;
+  }
+  > .small-rectangle1 {
+    background-color: green;
+    grid-column: 4 / span 3;
+    grid-row: 8 / span 2;
+  }
+  > .small-rectangle2 {
+    background-color: rgb(43, 59, 43);
+    grid-column: 8 / span 3;
+    grid-row: 8 / span 2;
+  }
+}
+@media (max-width: 450px) {
+  main {
+    width: 100vw;
+    height: 150vh;
+    gap: 2px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+
+    > header {
+      grid-column: 1 / span 10;
+      background-color: salmon;
+    }
+    > nav {
+      grid-column: 1 / span 10;
+      grid-row: 2 / span 5;
+      background-color: violet;
+    }
+    > aside {
+      grid-column: 1 / span 10;
+      grid-row: 7 / span 8;
+      background-color: rgb(140, 62, 62);
+    }
+    > footer {
+      grid-column: 1 / span 10;
+      background-color: salmon;
+    }
+    > .empty {
+      background-color: blueviolet;
+      grid-column: 1 / span 10;
+      grid-row: 7 / span 1;
+    }
+    > .card {
+      background-color: rgb(119, 107, 131);
+      grid-column: 1 / span 10;
+      grid-row: 8 / span 3;
+    }
+    > .card1 {
+      margin: 20px;
+      background-color: saddlebrown;
+      grid-column: 5 / span 2;
+      grid-row: 8 / span 1;
+    }
+    > .card2 {
+      margin: 20px;
+      background-color: saddlebrown;
+      grid-column: 5 / span 2;
+      grid-row: 9 / span 1;
+    }
+
+    > .card3 {
+      margin: 20px;
+      background-color: saddlebrown;
+      grid-column: 5 / span 2;
+      grid-row: 10 / span 1;
+    }
+    > .rectangle {
+      grid-column: 1 / span 10;
+      grid-row: 11 / span 2;
+    }
+    > .small-rectangle1 {
+      background-color: rgb(139, 169, 139);
+      grid-column: 1 / span 5;
+      grid-row: 13 / span 2;
+    }
+    > .small-rectangle2 {
+      background-color: rgb(87, 87, 87);
+      grid-column: 6 / span 5;
+      grid-row: 13 / span 2;
+    }
+  }
+}
