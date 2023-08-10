@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+div{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family:kbd;
+   >label{
+    width: 100px;
+    height: 30px;
+    background-color: rgba(27, 27, 175, 0.759);
+    text-align: center;
+    border-radius: 5px;
+    color: aliceblue;
+    padding: 5px;
+   }
+    > input{
+        display: none;
+    }
+}
