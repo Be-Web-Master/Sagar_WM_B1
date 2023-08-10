@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: salmon;
+}
+.container{
+  
+  display: flex;
+  justify-content: center;
+}
+#form{
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content:center ;
+  border-radius: 10px;
+  >h1{
+    margin-bottom: 20px;
+  }
+  }
+button{
+  background-color: blue;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  color: white;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+textarea{
+  margin-bottom: 10px;
+}
