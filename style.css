@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+table{
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* filter: drop-shadow(10px 10px 10px blue); */
+    /* box-shadow: 0px 0px 0px 10px grey !important    ; */
+}
+table > th{
+    padding: 50px !important;
+}
+.a{
+    padding: 10px 50px;
+
+    background-color: blue;
+}
+
+li{
+    margin-left: 25px;
+}
