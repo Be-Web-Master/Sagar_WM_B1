@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <form  id="form">
-            <h1>Contact Us</h1>
+      <form id="form">
+        <h1>Contact Us</h1>
 
-            <label for="name">Name</label>
-            <input type="text" id="name">
+        <label for="name">Name</label>
+        <input type="text" id="name" />
 
-            
-            <label for="email">Email</label>
-            <input type="email" id="email">
+        <label for="email">Email</label>
+        <input type="email" id="email" />
 
+        <label for="password">password</label>
+        <input type="password" id="password" />
 
-            
-            <label for="password">password</label>
-            <input type="password" id="password">
+        <label for="age">age</label>
+        <input type="number" id="age" />
 
-            
-            <label for="number">number</label>
-            <input type="number" id="number">
+        <label for="dob">Dob</label>
+        <input type="date" id="dob" />
 
-            
-            <label for="age">age</label>
-            <input type="number" id="age">
-            
-            <label for="date">date</label>
-            <input type="date" id="date">
- 
-            <label for="country">country</label>
+        <label for="country">country</label>
 
-            <select name="country" id="country">
-                <option value="UK">UK</option>
-                <option value="india">india</option>
-                <option value="us">US</option>
-            </select>
+        <select name="country" id="country">
+          <option value="UK">UK</option>
+          <option value="india">india</option>
+          <option value="us">US</option>
+        </select>
 
-            <label for="msg">Message</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+        <label for="msg">Message</label>
+        <textarea id="msg"></textarea>
 
-            <label for="gender">gender</label>
-            
-             <input type="radio" name="gender" id="gender">
-            <label for="male"> male</label>
-            <input type="radio" name="gender" id="gender">
-            <label for="male">female</label>
+        <label for="gender">Gender</label>
 
-            <input type="radio" name="gender" id="gender"> 
-            <label for="other">other</label>
+        <div>
+          <input type="radio" name="gender" value="male" id="male" />
+          <label for="male"> male</label>
+        </div>
 
-            <button>submit</button>
+        <div>
+          <input type="radio" name="gender" value="female" id="female" />
+          <label for="female">female</label>
+        </div>
 
-        </form>
+        <div>
+          <input type="radio" name="gender" value="others" id="other" />
+          <label for="other">other</label>
+        </div>
+
+        <input type="button" value="submit" />
+      </form>
     </div>
-
-
-</body>
+  </body>
 </html>
