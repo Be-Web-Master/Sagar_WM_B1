@@ -37,6 +37,9 @@ header {
         flex: 1;
         column-gap: 10px;
       }
+      >h2{
+        flex: 1;
+      }
     }
   }
 
