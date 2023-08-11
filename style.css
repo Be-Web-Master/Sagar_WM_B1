@@ -1,43 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border-radius: 3px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-.container{
-height: 100vh;
+.container {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(210, 198, 207);
 
-  > #form{
+  > #form {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255) ;
-    > input,textarea,button,select{
+    background-color: rgb(255, 255, 255);
+    > input,
+    textarea,
+    select {
       width: 250px;
-     border: 1px solid grey;
-     padding: 5px 10px;
-     
+      border: 1px solid grey;
+      padding: 5px 10px;
     }
   }
 }
-label{
+label {
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 2px;
 }
-input[type="button"]{
+input[type="button"] {
   margin-top: 10px;
   width: 100px !important;
   background-color: rgb(48, 48, 255);
   color: white;
 }
-input[type="radio"]{
-  width: 10px !important;
-  display: inline !important;
+input[type="radio"] {
+  width: 30px !important;
 }
+input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+
