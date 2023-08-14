@@ -10,31 +10,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 150px;
   width: 100vw;
   height: 100vh;
   > .circle {
-    /* border: 10px solid grey; */
-    /* border-top: 10px solid rgba(25, 0, 255, 0.886); */
-    background-color: blue;
     width: 100px;
     height: 100px;
-    border-radius: 50px;
-    animation: circle 1s linear infinite alternate ;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px grey;
+  }
+  > .border-cirlce {
+    border-top: 10px solid blue !important;
+    border: 10px solid transparent;
+    animation: border-cirlce 1s linear infinite;
+  }
+  > .ball {
+    background-color: blue;
+    animation: ball 1s linear infinite alternate;
+  }
+  > .scale {
+    background-color: blue;
+    border: 10% solid rgba(128, 128, 128, 0.736);
+    animation: scale1 1s linear infinite alternate;
   }
 }
-/* @keyframes circle {
+
+@keyframes border-cirlce {
   from {
     rotate: 0deg;
   }
   to {
     rotate: 360deg;
   }
-} */
-@keyframes circle {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(100px);
-    }
+}
+@keyframes ball {
+  from {
+    transform: translateY(0);
   }
+  to {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes scale1 {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
