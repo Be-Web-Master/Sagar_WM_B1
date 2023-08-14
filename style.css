@@ -21,14 +21,12 @@
       font-size: 25px;
       position: relative;
     }
-    
-    
   }
   .tooltip {
     display: none;
   }
 
-  > div:hover  .tooltip {
+  > div:hover .tooltip {
     position: absolute;
     top: 38%;
     transform: translateX(20px);
@@ -39,7 +37,15 @@
     color: white;
     border-radius: 5px;
     border: none;
-    
+
+    > .arrow {
+      z-index: -1;
+      position: absolute;
+      background-color: blue;
+      width: 20px;
+      height: 20px;
+      transform: rotate(30deg);
+      bottom: -2px;
+    }
   }
 }
-
