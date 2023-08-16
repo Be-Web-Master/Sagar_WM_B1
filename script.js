@@ -180,31 +180,27 @@
 // Q16: Create an object and apply .entries then create a
 //  new object using .fromEntries() and assign it in myObj2.
 
-const obj1 = {
-  name: "dhanoo",
-  age: "16th"
-}
-const obj1x = Object.entries(obj1)
+// const obj1 = {
+//   name: "dhanoo",
+//   age: "16th"
+// }
+// const obj1x = Object.entries(obj1)
 
-const entries1 = new Map([
-    ["foo",'bar'],
-    ["foo1",'bar2'],
-])
-const myObj = Object.fromEntries(entries1)
-console.log(myObj);
-
-
+// const entries1 = new Map([
+//     ["foo",'bar'],
+//     ["foo1",'bar2'],
+// ])
+// const myObj = Object.fromEntries(entries1)
+// console.log(myObj);
 // console.log(entries1);
 // Q17: Create an object and try to check two properties using
 //  .hasOwnProperty, second property should not exist.
 
-// const objjj = {
-//     name : "sagar",
-//     age: 23
-// }
-// console.log(Object.hasOwn(objjj,name));
-// console.log(Object.hasOwnProperty(objjj,age));
-
-
+const objjj = {
+    name : "sagar",
+    age: "23"
+}
+console.log(Object.hasOwn(objjj,'name'));
+console.log(Object.hasOwn(objjj,'age'));
 
 // error
