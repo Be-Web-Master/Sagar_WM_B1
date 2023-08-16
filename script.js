@@ -95,8 +95,6 @@
 // Object.defineProperties(obj,{gender:{value:"male"},add:{value:"888"}})
 // delete obj.name
 // console.log(obj)
-
-
 // output  { name: 'dhanoo', class: 88 }
 
 // // 10
@@ -109,5 +107,104 @@
 // Object.defineProperties(obj,{gender:{value:"male"},add:{value:"888"}})
 // delete obj.name
 
-// console.log(obj)
+// 11 Create an object and check for isSealed after applying
+// .seal and without applying .seal
 
+// const obj1 = {
+//     name:"dhanoo",
+//     class:"16th"
+// }
+// Object.seal(obj1)
+// console.log(Object.isSealed(obj1))
+// return true or false if Object.seal method are apply then is return true else false
+
+// Q12: Create an object and check for isExtensible after applying
+//  .preventExtensions and without applying .preventExtensions
+
+// const obj = {
+//   name: "dhanoo",
+//   class: "16th",
+// };
+// Object.preventExtensions(obj);
+// console.log(Object.isExtensible(obj));
+
+// Q13: Create an object and check for isFrozen after applying .freeze and without applying .freeze
+
+// const obj2 = {
+//     name: "dhanoo",
+//     class: "16th",
+//   };
+//   Object.freeze(obj2);
+//   console.log(Object.isFrozen(obj2));
+
+// Q14: Create an object and gets it’s prototype
+
+// const obj2 = {
+//   name: "dhanoo",
+//   class: "16th"
+// }
+// console.log(Object.getPrototypeOf(obj2))
+
+// Q15: Create two objects obj1, obj2 and set obj1’s prototype on the
+// obj2 object and try to get obj1 properties through obj2, which should not exist in obj2 before.
+
+// answer 1
+
+// const obj1 = {
+//   name: "dhanoo",
+//   age: "16th",
+// };
+// const obj2 = {
+//   name: "ritik",
+//   class: "15th",
+//   __proto__: obj1,
+// }
+// console.log(Object.getPrototypeOf(obj2))
+// console.log(obj2.age)
+
+// answer 2
+
+// const obj1 = {
+//   name: "dhanoo",
+//   age: "16th",
+// };
+// const obj2 = {
+//   name: "ritik",
+//   class: "15th",
+// };
+// Object.setPrototypeOf(obj2,obj1)
+// console.log(obj1);
+// console.log(obj2);
+// console.log(obj2.age)
+
+// Q16: Create an object and apply .entries then create a
+//  new object using .fromEntries() and assign it in myObj2.
+
+const obj1 = {
+  name: "dhanoo",
+  age: "16th"
+}
+const obj1x = Object.entries(obj1)
+
+const entries1 = new Map([
+    ["foo",'bar'],
+    ["foo1",'bar2'],
+])
+const myObj = Object.fromEntries(entries1)
+console.log(myObj);
+
+
+// console.log(entries1);
+// Q17: Create an object and try to check two properties using
+//  .hasOwnProperty, second property should not exist.
+
+// const objjj = {
+//     name : "sagar",
+//     age: 23
+// }
+// console.log(Object.hasOwn(objjj,name));
+// console.log(Object.hasOwnProperty(objjj,age));
+
+
+
+// error
