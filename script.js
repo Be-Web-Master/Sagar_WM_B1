@@ -60,13 +60,12 @@
 // console.log(arr);
 // mergeSort(arr);
 
-
 function mergeSort(arr1, arr2) {
   let idx1 = 0;
   let idx2 = 0;
   let resultArr = [];
-  while (idx1 < arr1.length && idx2 < arr2.length) {
-    console.log("hello")
+  while (arr1.length && arr2.length) {
+    console.log("hello");
     if (arr1[idx1] > arr2[idx2]) {
       resultArr.push(arr2[idx2]);
       if (arr2.length - 1 !== idx2) {
@@ -83,3 +82,4 @@ const arr1 = [5, 8, 9];
 const arr2 = [2, 1, 7];
 const mergeSorting = mergeSort(arr1, arr2);
 console.log(mergeSorting);
+
