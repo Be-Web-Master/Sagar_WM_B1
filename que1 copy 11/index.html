@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+        width: 50vw;
+        height: 50vh;
+        background-color: salmon;
+        box-shadow: 10px 10px 10px grey;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">click</button>
+
+    <form id="card">
+        <span id="img">❌</span>
+      <label for="name">Name : </label>
+      <input id="name" type="text" />
+
+      <br />
+
+      <label for="age">Age</label>
+      <input id="age" type="number" />
+      <br />
+      <label for="gender">gender</label>
+      <section>
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </section>
+
+      <br />
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>
