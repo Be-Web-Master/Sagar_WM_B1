@@ -7,4 +7,3 @@ function generateNum(start,end) {
 }
 generateNum(1,100)
 
-// dought

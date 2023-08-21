@@ -2,12 +2,17 @@
 
 console.log(sumOfDigitsToPower(123));
 function sumOfDigitsToPower(n) {
-  let count = 0;
-  let temp = n * 10;
-  let sum = 0;
-  for (let i = 0; i <= temp; i++) {
-    ++count;
-    temp = Math.trunc(temp / 10);
-  }
-  
+  const str = n.toString();
+  let copy = n;
+  let res = 0;
+ const numLength = str.length;
+ for (let i = 0; i < numLength; i++) {
+   let temp = copy%10
+   res+=Math.pow(temp,3)
+   console.log({temp,res,copy});
+   temp = 0;
+   copy=Math.trunc(copy/=10)
+ }
+return res
+
 }
