@@ -1,15 +1,12 @@
 // Create a program that counts the occurrence of each character in a given string and displays the character count.
-const str = "aaabbbbc";
+const str ="aaabbbbccccc";
 const obj = {};
-function counter(str) {
-  for (const char of str) {
-    if (obj[char]) {
-      obj[char]++;
-    } else {
-      obj[char] = 1;
-    }
+function counter(str,char) {
+  for (const word of str) {
+    if (obj[word])  obj[word]+=1;
+    else   obj[word] = 1;
   }
-  return obj;
+  return {obj,char:obj[char]};
 }
 
-console.log(counter(str));
+console.log(counter(str,'c'));
