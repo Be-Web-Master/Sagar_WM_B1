@@ -4,37 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form onsubmit="submitHandler(event)">
-        <h1>Contact us</h1>
-      <label for="firstName">FirstName : </label>
-      <input type="text" name="firstName" id="firstName" required />
+    <form id="form" onsubmit="onSubmit(event)">
+      <h1 id="formHeading">Contact us</h1>
+      <label class="label" for="firstName">First Name :</label>
+      <input class="inputs" type="text" name="firstName" id="firstName" required />
 
-      <label for="lastName">LastName : </label>
-      <input type="text" name="lastName" id="lastName" required />
+      <label class="label" for="lastName">Last Name :</label>
+      <input class="inputs" type="text" name="lastName" id="lastName" required />
 
-      <label for="email">Email : </label>
-      <input type="email" id="email" required />
+      <label class="label" for="email">Email:</label>
+      <input class="inputs" type="email" id="email" required />
 
-      <label for="tel">Phone Number : </label>
-      <input onkeyup="validInput('tel')" name="val" type="tel" id="tel" required />
+      <label class="label" for="phoneNumber">Phone Number :</label>
+      <input class="inputs"
+        onkeyup="validatePhoneNumber()"
+        name="val"
+        type="tel"
+        id="phoneNumber"
+        required
+      />
 
-      <label for="age">Age : </label>
-      <input onkeyup="validInput('age')" name="age" type="number" id="age" required />
+      <label class="label" for="age">Age :</label>
+      <input class="inputs"
+        onkeyup="validateAge()"
+        name="age"
+        type="number"
+        id="age"
+        required
+      />
 
-      <label>Gender </label>
-      <div>
-        <label for="male">Male </label>
-        <input type="radio" name="gender" id="male" required />
-        <label for="female">Female </label>
-        <input type="radio" name="gender" id="female" required />
-        <label for="other">other </label>
-        <input type="radio" name="gender" id="other" required />
+      <label class="label">Gender </label>
+      <div class="radioDiv">
+        <label class="radioLabel" for="male">Male</label>
+        <input class="inputs" type="radio" name="gender" id="male" required />
+        <label class="radioLabel" for="female">Female</label>
+        <input class="inputs" type="radio" name="gender" id="female" required />
+        <label class="radioLabel" for="other">LGBT</label>
+        <input class="inputs" type="radio" name="gender" id="other" required />
       </div>
-      <span id="errorMsg"></span>
-      <input type="submit" value="submit" />
+      <p id="errorMsg"></p>
+      <input class="inputs" type="submit" value="submit" />
     </form>
     <script src="index.js"></script>
   </body>
