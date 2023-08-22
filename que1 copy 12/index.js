@@ -1,14 +1,16 @@
 const btn = document.getElementById("btn");
-const form = document.getElementById("card");
-const img = document.getElementById("img");
-
-btn.addEventListener("toggle", () => {
-
-    form.style.display = "block";
-    btn.textContent = "close Model";
-
+const para = document.getElementById("para");
+const btnClose =document.getElementById("btnClose")
+btn.addEventListener("click", () => {
+    para.style.display = "block";
+    btnClose.style.display = "block";
+    btn.style.display = "none";
+    // btn.textContent = "close Model"
 });
 
-// img.addEventListener('click', () => {
-//   form.style.display="none"
-// });
+btnClose.addEventListener("click", () => {
+    para.style.display = "none";
+    btnClose.style.display = "none";
+    btn.style.display = "block";
+
+});

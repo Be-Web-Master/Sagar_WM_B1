@@ -1,5 +1,7 @@
-const btn = document.getElementById("btn");
+const btn = document.getElementById("clickCounter");
+let count = 0;
 
-btn.addEventListener('click', () => {
-  btn.innerText="clicked !!"
+document.addEventListener("click", () => {
+  ++count;
+  btn.innerText = count;
 });
