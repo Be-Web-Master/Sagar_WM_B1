@@ -5,6 +5,7 @@ const phoneNumber = document.getElementById("phoneNumber");
 const male = document.getElementById("male");
 const female = document.getElementById("female");
 const errorMsg = document.getElementById("errorMsg");
+const submitButton = document.getElementById("submitButton");
 
 const validateAge = () => {
   errorMsg.innerText =
@@ -15,8 +16,13 @@ const validatePhoneNumber = () => {
     phoneNumber.value.length !== 10 ? "Number length should be 10" : "";
 };
 
+const buttonHandle = () => {
+  submitButton.innerText = "Submitted";
+}
+
 const onSubmit = (event) => {
   event.preventDefault();
+  buttonHandle()
   console.log({
     firstName: firstName.value,
     lastName: lastName.value,

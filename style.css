@@ -13,10 +13,8 @@ body {
 #form {
   box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.359);
 }
-.radioDiv {
+.radioButtuonContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .radioLabel {
   display: inline !important;
@@ -37,7 +35,7 @@ body {
   margin: 0 30px 0 0;
   padding: 0 10px 0 10px;
 }
-input[type="submit"] {
+#submitButton {
   font-size: 18px;
   height: 30px;
   margin: 10px;
