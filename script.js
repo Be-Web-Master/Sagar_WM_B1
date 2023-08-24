@@ -159,9 +159,36 @@ output object ====== {
 // 8 Split an array into chunks
 // — create a function that takes 2 args: arr, array of numbers or strings, chunkSize
 // — this function returns an array of arrays where each array is of size equal to chunkSize
+// function chunkArr(arr, chunkSize) {
+//     const newArr = [];
+
+//     for (let i = 0; i < arr.length; i += chunkSize) {
+//       const chunk = arr.slice(i, i + chunkSize);
+//       newArr.push(chunk);
+//     }
+
+//     return newArr;
+//   }
+//   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+//   const steps = 3;
+//   const result = chunkArr(arr, steps);
+//   console.log(result);
 
 // 9
 // Shuffle an array
+// const myArr = [1, 2, 3, 4, 5];
+// function shuffleArray(arr) {
+//     for (let i = arr.length - 1; i > 0; i--) {
+//       const j = Math.floor(Math.random() * (i + 1));
+//       [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+//     }
+//   }
+
+//   // Example usage
+//   const myArray = [1, 2, 3, 4, 5];
+//   shuffleArray(myArray)
+//   console.log(myArray);
+
 
 // 10 Rotate an array by steps
 // — create a function that takes 2 args: arr, array of numbers or strings, stepSize
