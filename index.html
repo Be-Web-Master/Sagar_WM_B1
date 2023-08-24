@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    </style>
+  </head>
+  <body>
+    <h1>Home Assignment</h1>
+    <form onsubmit="submitHandle(event)">
+      <label for="idNumber">User ID: </label>
+      <input id="idNumber" value="" type="number" min="1" max="5" />
+      <button id="btn" type="submit">Submit</button>
+    </form>
+    <div id="divContainer">
+      <h1>Name:- <span id="userName"></span></h1>
+      <h2>Age:- <span id="userAge"></span></h2>
+      <h2>Gender:- <span id="userGender"></span></h2>
+      <h2>Email:- <span id="userEmail"></span></h2>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
