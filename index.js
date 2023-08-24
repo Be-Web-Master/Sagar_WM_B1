@@ -11,11 +11,11 @@ const fetchData = () => {
     .then((data) => {
       const index = idNumber.value - 1;
       const userId = data.data[index];
-      userAge.innerText = userId.age
-      userGender.innerText = userId.gender
-      userName.innerText = userId.name
-      userEmail.innerText = userId.email
-      divContainer.style.display="inline"
+      userAge.innerText = userId.age;
+      userGender.innerText = userId.gender;
+      userName.innerText = userId.name;
+      userEmail.innerText = userId.email;
+      divContainer.style.display = "inline";
     })
     .catch((err) => console.log(err));
 };
@@ -24,10 +24,3 @@ const submitHandle = (event) => {
   event.preventDefault();
   fetchData();
 };
-
-// const fetchData=async (URL) => {
-// const response = await fetch(URL);
-// const data1 = await response.json();
-// console.log(data1.data[0].name);
-// }
-// fetchData('../data.json')
