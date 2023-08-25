@@ -29,6 +29,16 @@ const updateUI = () => {
 const clearUI = () => {
   todoList.innerHTML = "";
 };
+const handleSearchInput = (event) => {
+  const value = event.target.value;
+  clearUI();
+  todoLiData.forEach((element) => {
+    let searchElement = element.includes(value);
+    if (searchElement) {
+      addLiElement(element);
+    }
+  });
+};
 
 const handleAddSubmit = async (event) => {
   event.preventDefault();
@@ -58,8 +68,4 @@ const handleAddSubmit = async (event) => {
 
   idInput.value = "";
   submitBtn.innerText = "Add";
-};
-
-const handleSearchInput = (event) => {
-  console.log(event.target.value);
 };
