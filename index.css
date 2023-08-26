@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+table {
+  display: inline-block;
+}
+#addNewColumnBtn{
+  cursor: pointer;
+  margin: 20px;
+}
+#addNewRowBtn{
+  margin: 20px;
+  cursor: pointer;
+}
+th,
+tr td {
+  padding: 5px;
+  text-align: center;
+}
+input{
+  padding-left: 10px;
+  height: 25px;
+  margin: 5px;
+}
+
