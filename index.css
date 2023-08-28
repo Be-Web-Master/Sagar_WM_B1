@@ -18,6 +18,10 @@ table {
   margin: 20px;
   cursor: pointer;
 }
+#removeBtn{
+  margin: 20px;
+  cursor: pointer;
+}
 th,
 tr td {
   padding: 5px;

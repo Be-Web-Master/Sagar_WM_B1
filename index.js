@@ -2,90 +2,153 @@ const thead = document.getElementById("thead");
 const tbody = document.getElementById("tbody");
 const addNewColumnBtn = document.getElementById("addNewColumnBtn");
 const addNewRowBtn = document.getElementById("addNewRowBtn");
+const removeBtn = document.getElementById("removeBtn");
 
-const tableData = JSON.parse(localStorage.getItem("tableData"));
-console.log({ tableData });
-//  {
-//   header: [{ elementType: "th", columnName: "A", order: 1, sort: null }],
-//   body: [
-//     {
-//       elementType: "tr",
-//       rowOrder: 1,
-//       columnElems: [
-//         {
-//           elementType: "td",
-//           columnName: "column",
-//           rowOrder: 1,
-//           value: "kuch kuch he abhi tho",
-//         },
-//       ],
-//     },
-//   ],
-// };
- localStorage.setItem("tableData", JSON.stringify(tableData))
+const LOCAL_STORAGE_TABLE_KEY = "tableStateData";
 
-const addNewRow = () => {
-  table.header.push();
+addNewRowBtn.addEventListener("click", () => addNewRow());
+
+addNewColumnBtn.addEventListener("click", () => addNewColumn());
+
+removeBtn.addEventListener("click", () => {
+  localStorage.clear();
+  clearUI();
+});
+
+let tableState = {
+  header: [],
+  body: [],
 };
-const columHeaderObject = {
-  element: "",
-  columnName: "",
-  order: 0,
-  sort: undefined,
-};
-// const populateUI = (tableData) => {
-//   const { header, body } = tableData;
-//   tbody.innerHTML = "";
-//   thead.innerHTML = "";
-//   header.forEach((tableColumn) => {
-//     const th = document.createElement(data.elementType);
-//     th.innerText = data.columnName;
-//     thead.append(th);
-//   });
-//   body.forEach((tableRow) => {
-//     const { elementType, columnElems } = tableRow;
-//     const tr = document.createElement(elementType);
-//     columnElems.forEach((cellElem) => {
-//       const td = document.createElement(cellElem.elementType);
-//       tr.append(td);
-//       td.append(cellElem.value);
-//     });
-//     tr.innerText = data.rowName;
-//     tbody.append(tr);
-//   });
-// };
-// populateUI(table);
 
-const createInput = (type, placeholder) => {
-  const input = document.createElement("input");
-  input.setAttribute(type, "text");
-  input.setAttribute("placeholder", placeholder);
+if (localStorage.getItem(LOCAL_STORAGE_TABLE_KEY)) {
+  tableState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TABLE_KEY));
+} else {
+  localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+}
+
+function updateTableData(tableState) {
+  // clearUI();
+  // console.log(tableState);
+  localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+  // createTableUI(tableState);
+}
+function clearUI() {
+  tbody.innerHTML = "";
+  thead.innerHTML = "";
+}
+
+const saveTextInput = (e) => {
+  const id = e.target.id;
+  const [row, column] = id.split("-");
+  tableState.body[row].cellDetails[column].cellValue = e.target.value;
+  localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+};
+const saveSearchInput = (e) => {
+  const id = e.target.id;
+  const [row, column] = id.split("-");
+  tableState.header[column].columnName = e.target.value;
+  localStorage.setItem(LOCAL_STORAGE_TABLE_KEY, JSON.stringify(tableState));
+
+};
+
+function createInput(columnNumber) {
+  const input = Object.assign(document.createElement("input"), {
+    id: `header-${columnNumber}`,
+    type: "search",
+    placeholder: "Search here",
+    onkeyup: saveSearchInput,
+  });
+  // console.log(input);
   return input;
-};
+}
 
-const createColumnElement = () => {
-  const th = document.createElement("th");
-  th.append(createInput("search", "search"));
-  thead.appendChild(th);
-  if (tbody.childElementCount) {
-    for (const elem of tbody.children) {
-      const td = document.createElement("td");
-      elem.appendChild(td);
-      td.appendChild(createInput("type", "text here"));
-    }
-  }
-};
+function createTextArea(rowNumber, columnNumber) {
+  // console.log(`body-${rowNumber}-${columnNumber}`);
+  const input = Object.assign(document.createElement("textarea"), {
+    id: `${rowNumber}-${columnNumber}`,
+    row: "10",
+    column: "10",
+    placeholder: "Text here",
+    onkeyup: saveTextInput,
+  });
 
-addNewColumnBtn.addEventListener("click", () => createColumnElement());
+  return input;
+}
 
-const createRowElement = () => {
-  const tr = document.createElement("tr");
-  tbody.appendChild(tr);
-  for (let i = 0; i < thead.children.length; i++) {
-    const td = document.createElement("td");
-    tr.appendChild(td);
-    td.appendChild(createInput("type", "text here"));
-  }
-};
+function createTableUI(tableState) {
+  const { header, body } = tableState;
+  clearUI();
+  // console.log({ header, body });
 
-addNewRowBtn.addEventListener("click", () => createRowElement());
+  header.forEach((tableColumn) => {
+    const th = document.createElement(tableColumn.elementType);
+    const columnNumber = tableColumn.columnNum;
+    const columnInput = createInput(columnNumber);
+    columnInput.value = tableColumn.columnName;
+    th.appendChild(columnInput);
+    thead.append(th);
+  });
+
+  body.forEach((tableRow) => {
+    const { elementType, cellDetails } = tableRow;
+    const tr = document.createElement(elementType);
+
+    cellDetails?.forEach((rowData) => {
+      const rowNumber = rowData.rowNumber;
+      const columnNumber = rowData.columnNumber;
+      const td = document.createElement(rowData.elementType);
+      const textArea = createTextArea(rowNumber, columnNumber);
+      textArea.value = rowData.cellValue;
+      td.append(textArea);
+      tr.append(td);
+    });
+    tbody.append(tr);
+  });
+  updateTableData(tableState);
+}
+
+createTableUI(tableState);
+
+function addNewColumn() {
+  const rowObj = {
+    elementType: "th",
+    columnNum: tableState.header.length,
+    columnName: "",
+    sort: "",
+  };
+
+  tableState.body.forEach((rowObj, idx) => {
+    rowObj.cellDetails.push({
+      elementType: "td",
+      columnNumber: tableState.header.length,
+      rowNumber: idx,
+      cellValue: "",
+    });
+  });
+  tableState.header.push(rowObj);
+  updateTableData(tableState);
+  createTableUI(tableState);
+}
+
+function addNewRow() {
+  const bodyObj = {
+    elementType: "tr",
+    rowNumber: tableState.body.length + 1,
+    cellDetails: [],
+  };
+
+  const { header } = tableState;
+  header.map((val, idx) => {
+    bodyObj.cellDetails.push({
+      elementType: "td",
+      columnNumber: idx,
+      rowNumber: tableState.body.length,
+      cellValue: "",
+    });
+  });
+  tableState.body.push(bodyObj);
+  updateTableData(tableState);
+  createTableUI(tableState);
+}
+
+console.log(tableState);
