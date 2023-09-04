@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <table border="A">
-      <thead id="thead"></thead>
-      <tbody  id="tbody"></tbody>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Project Table UI</title>
+</head>
+
+<body>
+    <button type="button" id="addColumnButton">Add Column</button>
+    <button type="button" id="addRowButton">Add Row</button>
+    <button type="button" id="clearLocalData">Clear All</button>
+    <!-- <input type="file" accept=".csv" id="csvFile" > -->
+    <form id="sortForm">
+
+        <select name="columnsDropdown" class="columnsDropDown">
+        </select>
+
+        <input type="radio" value="ascending" name="sort" id="ascending">
+        <label for="ascending">Ascending</label>
+
+        <input type="radio" value="descending" name="sort" id="descending">
+        <label for="descending">Descending</label>
+        <button id="sortButton">Sort</button>
+    </form>
+
+    <table id="table">
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
     </table>
 
-    <span id="addNewColumnBtn">Column ➕</span>
-    <span id="addNewRowBtn">Row ✖️</span>
-    <span id="removeBtn">Clear ❌</span>
-    <script src="index.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
+
 </html>
