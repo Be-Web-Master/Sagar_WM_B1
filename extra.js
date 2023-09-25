@@ -1,13 +1,26 @@
-console.log("jj");
+// "5. Group items on the basis of age of given array of object.
+const peoples = [
+  { name: "a", age: 21 },
+  { name: "b", age: 20 },
+  { name: "c", age: 22 },
+  { name: "d", age: 21 },
+  { name: "e", age: 22 },
+  { name: "f", age: 22 },
+];
+// let output = {
+// 21:[ { name:"a", age:21 }, { name:"d", age:21 }],
+// 20: [{ name:"b", age:20 }],
+// 22: [{ name:"c", age:22 }, { name:"e", age:22 },
+// { name:"f", age:22 }]
+// }
+const result = {};
 
-// "4. Write a JavaScript function to check if a given string is a palindrome (reads the same forwards and backwards).
+peoples.map((obj) => {
+  if (result[obj.age]) {
+    result[obj.age] = [...result[obj.age], obj];
+  } else {
+    result[obj.age] = [obj];
+  }
+});
 
-function palindromeCheck(str) {
-   let arr = [...str]
-   console.log(arr);
-
-}
-
-let str = "abcba"
-
-console.log(palindromeCheck(str));
+console.log({ result });
