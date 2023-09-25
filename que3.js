@@ -3,10 +3,10 @@ console.log("Question 3");
 
 const reverseArray = (arr) => {
   let brr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
+  for (let i = arr.length-1; i >= 0; i--) {
     brr.push(arr[i]);
   }
   return brr;
 };
-
-console.log(reverseArray([1, 2, 3, 4, 5, 6]));
+const reverseArr =reverseArray([1, 2, 3, 4, 5, 6])
+console.log(reverseArr);
