@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import "./App.css";
 const Table = () => {
@@ -8,6 +8,8 @@ const Table = () => {
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [showAddRowAlert, setShowAddRowAlert] = useState(false);
+  const [apiData, setApiData] = useState(null);
+
   // const [modalOpen, setModalOpen, ModalComponent] = useModal()
   // const [columnName, setColumnName] = useState("");
   const [addColumnFormState, setAddColumnFormState] = useState({
@@ -22,13 +24,32 @@ const Table = () => {
     });
   };
 
+
+  const getApiData = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await response.json();
+     setDataInState(data)
+  };
+  useEffect(() => {
+  getApiData()
+  }, []);
+  const setDataInState=(dataList)=>{
+     const userIdGroup = {};
+     dataList.map((data)=>{
+      if (!userIdGroup[data.userId]) {
+      userIdGroup[data.userId]
+      }
+     })
+  }
+
   const addColumnPrompt = () => setModalOpen(true);
   const handleAddColumn = (columnName) => {
     // const columnName = prompt('Add column Name');
     const newTable = { ...tableState };
     newTable.columns.push({
       columnComponentType: addColumnFormState.columnComponentType,
-      columnName: columnName ?? `Col_${newTable.columns.length + 1}`,
+      // columnName: columnName ?? `Col_${newTable.columns.length + 1}`,
+      // columnName: data.userId,
     });
     //  adding cells for columns
     newTable.rows.forEach((rowObj, rowIdx) =>
