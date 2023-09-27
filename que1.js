@@ -8,15 +8,15 @@ const toggleEachCharacter = (str) => {
   let newStr = "";
   for (let i = 0; i < str.length; i++) {
     if (str[i].charCodeAt() > 97 && str[i].charCodeAt() < 122) {
-      newStr += str[i].toLowerCase();
+      newStr += str[i].toUpperCase();
+      console.log(newStr);
     }
     if (str[i].charCodeAt() > 65 && str[i].charCodeAt() < 90) {
-      newStr += str[i].toUpperCase();
-      console.log(str[i]);
+      newStr += str[i].toLowerCase();
     }
   }
-  return newStr;
+  return newStr
 };
 
 const str = "WebMaster";
-toggleEachCharacter(str);
+toggleEachCharacter(str)
