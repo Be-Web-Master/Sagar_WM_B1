@@ -15,20 +15,15 @@ console.log("que4");
 
 const getFrequency = (str) => {
   let arr = str.toLowerCase().replaceAll(" ", "").split("");
-  let obj = {};
-  let freq = 1;
-  //  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    if (Object.hasOwn(arr[i])) {
-      obj[arr[i]] = ++freq;
-
-      console.log(arr[i]+" if");
+  const frequencies = {};
+  for (const item of arr) {
+    if (frequencies[item]) {
+      frequencies[item]++;
     } else {
-      obj[arr[i]] = freq;
-      console.log(arr[i]+" else");
+      frequencies[item] = 1;
     }
   }
-  console.log(obj);
+  return frequencies;
 };
 const str = "WebMaster wEBmasTer Best";
 console.log(getFrequency(str));
