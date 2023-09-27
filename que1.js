@@ -9,7 +9,6 @@ const toggleEachCharacter = (str) => {
   for (let i = 0; i < str.length; i++) {
     if (str[i].charCodeAt() > 97 && str[i].charCodeAt() < 122) {
       newStr += str[i].toUpperCase();
-      console.log(newStr);
     }
     if (str[i].charCodeAt() > 65 && str[i].charCodeAt() < 90) {
       newStr += str[i].toLowerCase();
@@ -19,4 +18,5 @@ const toggleEachCharacter = (str) => {
 };
 
 const str = "WebMaster";
-toggleEachCharacter(str)
+console.log(toggleEachCharacter(str)
+);
