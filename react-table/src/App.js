@@ -1,11 +1,12 @@
-import { useState } from "react";
-import TableState from "./tableState";
+import FileUpload from "./Components/FileUpload/FileUpload";
+import Table from "./Components/Table";
 const App = () => {
-  
+
   return (
     <>
       <div className="app">
-        <TableState />
+        <Table />
+        <FileUpload/>
       </div>
     </>
   );
