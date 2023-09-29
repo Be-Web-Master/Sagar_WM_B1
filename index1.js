@@ -1,4 +1,4 @@
-console.log("11");
+console.log("1----1");
 // Find the factorial of a number
 // function findFactorial(num) - this function will return factorial of a number
 // const num = 5;
