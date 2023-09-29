@@ -1,7 +1,0 @@
-const ModalComponent =()=>{
-
-
-    return (<>
-           
-    </>)
-}
