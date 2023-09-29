@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.carousal-uppar-container {
+
+  display: flex;
+  left: 50%;
+  top: 170px;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  background-color: grey;
+  position: relative;
+}
+.carousal-lower-container {
+  display: flex;
+  /* overflow: hidden; */
+  overflow-x: auto;
+   overflow-y: auto;
+}
+img {
+  width: 100% !important;
+  height: 100% ;
+  margin-right: 10px;
+}
+.carousal-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: rgba(198, 165, 165, 0.683);
+  display: grid;
+  place-items: center;
+}
+
+.carousal-arrow:hover {
+  cursor: pointer;
+  background-color: rgba(95, 79, 79, 0.9);
+}
+.carousal-left-arrow {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+}
+
+.carousal-right-arrow {
+  position: absolute;
+  left: 88%;
+  top: 50%;
+}
+.img-delet{
+  position: absolute;
+  left: 85%;
+}
+.img-delet:hover{
+  background-color: black;
+}
+
+.save-btn{
+  position: absolute;
+  bottom: -10%;
+  width: 100px;
+  padding: 10px;
+  background-color: rgba(0, 128, 0, 0.8);
+  border: 1px solid green;
+  color: white;
+}
+.save-btn:hover{
+  background-color: rgba(0, 128, 0);
+}

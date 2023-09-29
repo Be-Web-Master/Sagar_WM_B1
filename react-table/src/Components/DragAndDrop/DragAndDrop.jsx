@@ -24,7 +24,7 @@ const DragAndDefault = ({ title = "Select File", onFileDrop }) => {
         onDragOver={onDropOver}
         className={`drag-n-drop ${isDragActive && `when-drag-are-occur`}`}
       >
-        <input type="file" id="drag-n-drop-input" value="" />
+        <input type="file" id="drag-n-drop-input"  />
         <label className="drag-n-drop-label" htmlFor="drag-n-drop-input">
           {title}
         </label>

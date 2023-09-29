@@ -1,12 +1,14 @@
 import FileUpload from "./Components/FileUpload/FileUpload";
 import Table from "./Components/Table";
+import { ReactTest } from "./reactTest";
 const App = () => {
 
   return (
     <>
       <div className="app">
-        <Table />
-        <FileUpload/>
+       <ReactTest/>
+        // <Table />
+        // <FileUpload/>
       </div>
     </>
   );
