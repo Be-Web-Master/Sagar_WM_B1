@@ -14,9 +14,8 @@ function findMaxDublicate(arr) {
       obj[arr[i]] = 1;
     }
   }
-  let max = Object.values(obj)
-let arr = Math.max(...max)
 
+console.log(Object.entries(obj));
 }
 const arr = [11, 1, 12, 2, 5, 5, 6, 11, 14, 11];
 
