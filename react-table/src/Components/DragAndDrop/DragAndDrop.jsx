@@ -1,36 +1,33 @@
-import { useEffect, useState } from "react";
-import "./DragAndDrop.css";
-const DragAndDefault = ({ title = "Select File", onFileDrop }) => {
+import React, { useEffect, useState } from 'react'
+import './DragAndDrop.css'
+const DragAndDrop = ({ title = "Select File", onFileDrop }) => {
   const [isDragActive, setIsDragActive] = useState(false);
-
-  const onDrop = (e) => {
-    e.preventDefault();
-    const files = e.dataTransfer.files;
-  // console.log(files);
-    const fileList = Object.values(files).map((elm) => {
-      return URL.createObjectURL(elm)
-    });
+  const onDrop = (files) => {
+    const fileList = Object.values(files).map((file)=> {
+      return ({
+        url: URL.createObjectURL(file),
+        data: file
+      });
+    })
     onFileDrop(fileList);
-  };
-  const onDropOver = (e) => {
+  }
+  const onDragOver = (e) => {
     e.preventDefault();
-    setIsDragActive(true);
-  };
+    setIsDragActive(true)
+  }
+  const onDragLeave = () => {
+    setIsDragActive(false)
+  }
   return (
-    <>
-      <div
-        onDrop={onDrop}
-        onDragLeave={() => setIsDragActive(false)}
-        onDragOver={onDropOver}
-        className={`drag-n-drop ${isDragActive && `when-drag-are-occur`}`}
-      >
-        <input type="file" id="drag-n-drop-input"  />
-        <label className="drag-n-drop-label" htmlFor="drag-n-drop-input">
-          {title}
-        </label>
-      </div>
-    </>
-  );
-};
+    <div onDrop={(e) => {
+      e.preventDefault();
+      onDrop(e.dataTransfer.files);
+    }} onDragOver={onDragOver} onDragLeave={onDragLeave} className={`drag-n-drop-container ${isDragActive && 'drag-input-container-active'} `}>
+        <input onChange={(e) => onDrop(e.target.files)} className='drag-drop-input' id='drag-file-input' type='file' title='' multiple />
+       <label className={`drap-n-drop-input-label ${isDragActive && 'drag-input-label-active'}`} for="drag-file-input"
+      >{title}</label>
+    </div>
+  )
+}
 
-export default DragAndDefault;
+export default DragAndDrop

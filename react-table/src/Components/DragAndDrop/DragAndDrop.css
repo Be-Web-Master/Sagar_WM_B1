@@ -7,24 +7,25 @@
   font-family: "Roboto", sans-serif;
 }
 
-.drag-n-drop {
-  padding: 2px;
-  width: 100vw;
+.drag-n-drop-container{
+  border: 3px solid grey;
+  border-style: dashed;
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  border: 2px dotted grey;
 }
-.when-drag-are-occur {
-  border: 5px dotted red;
+.drag-drop-input{
+  display: none;
 }
-.drag-n-drop-label {
- padding: 20px;
+.drap-n-drop-input-label{
   width: 100%;
   text-align: center;
-  color: black;
 }
-#drag-n-drop-input {
-  display: none;
+.drag-input-container-active{
+  border-color: blue;
+}
+.drag-input-label-active{
+  color: blue;
 }

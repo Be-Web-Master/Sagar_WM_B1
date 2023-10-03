@@ -1,76 +1,75 @@
-// import React, { useState, useRef } from "react";
-// import "./Carousal.css";
-// const Carousal = ({ imagelList = [], onDelete }) => {
-//   const [page, setPage] = useState(0);
-//   const carouserRef = useRef();
+import React, { useRef, useState } from 'react'
+import "./Carousal.css"
+const defaultFunction = () => { }
+const Carousel = ({ imageList = [], onDelete = defaultFunction, defaultImage = "", onSave = defaultFunction, circleCount = 5 }) => {
+    const [page, setPage] = useState(0)
+    const carouselRef = useRef();
+    const scrollToRight = () => {
+        const nextPage = page + 1;
+        if (imageList.length > nextPage) {
+            carouselRef.current.children[nextPage].scrollIntoView({ behavior: "smooth" })
+            setPage(nextPage);
+        }
+    }
+    const scrollToLeft = () => {
+        const prevPage = page - 1;
+        if (prevPage >= 0) {
+            carouselRef.current.children[prevPage].scrollIntoView({ behavior: "smooth" })
+            setPage(prevPage);
+        }
+    }
+    const handleOnDelete = () => {
+        onDelete(imageList.filter((img, index) => index !== page));
+        setPage(0)
+    }
+    const handleOnSave = () => {
+        onSave(imageList[page]);
+    }
+    return (
+        <div className='carousel-box'>
+            <div className='carousel-container'>
+                {
+                    <>
+                        <div ref={carouselRef} className='image-container'>
+                            {
+                                imageList.length > 0
+                                    ? (
+                                        imageList.map((image, index) => {
+                                            return <img className='carousel-image' src={image.url} key={index} />
+                                        })
+                                    ) : (
+                                        <img src={defaultImage} alt='No images' />
+                                    )
+                            }
+                        </div>
+                        {
+                            imageList.length > 0 && (<>
+                                {
+                                    page > 0 && (<div className='carousel-arrow carousel-left-arrow' onClick={scrollToLeft}> &lt; </div>)
+                                }
+                                {
+                                    page < imageList.length - 1 && (<div className='carousel-arrow carousel-right-arrow' onClick={scrollToRight}> &gt; </div>)
+                                }
+                                <div className='carousel-arrow carousel-cross-btn' onClick={handleOnDelete}> X </div>
 
-//   const isImageList = imagelList > 0;
-//   const scrollToRight = () => {
-//     const nextPage = page + 1;
-//     if (imagelList.length > nextPage) {
-//       carouserRef.current.children[nextPage].scrollIntoView({
-//         behavior: "smooth",
-//       });
-//       setPage(nextPage);
-//     }
-//     // console.log("right");
-//   };
-//   const scrollToLeft = () => {
-//     const prevPage = page - 1;
-//     if (prevPage >= 0) {
-//       carouserRef.current.children[prevPage].scrollIntoView({
-//         behavior: "smooth",
-//       });
-//       setPage(prevPage);
-//     }
-//     // console.log("left");
-//   };
-//   const deleteFileByOne = () => {
-//     onDelete(imagelList.filter((img, index) => index !== page));
-//     setPage(0);
-//   };
-//   return (
-//     <>
-//       <div className="carousal-uppar-container">
-//         {
-//           <>
-//             <div ref={carouserRef} className="carousal-lower-container">
-//               {imagelList.length > 0 ? (
-//                 imagelList.map((image, index) => (
-//                   <img src={image} alt="" key={index} />
-//                 ))
-//               ) : (
-//                 <img src={defaultImage} alt="No image" />
-//               )}
-//             </div>
-//             {imagelList.length > 0 && (
-//               <>
-//                 {page > 0 && (
-//                 <div
-//                   onClick={scrollToLeft}
-//                   className="carousal-left-arrow carousal-arrow"
-//                 >
-//                   {" "}
-//                   ⬅️{" "}
-//                 </div>        )
-//             )}
-//           </>
-//         }
+                                <div className='carousel-circle-container'>
+                                    {
+                                        imageList.slice(0, circleCount).map((img, index) => {
+                                            return <div key={index} className={`carousel-circle ${page === index && ('carousel-circle-active')}`}>
 
-//         <div
-//           onClick={scrollToRight}
-//           className="carousal-right-arrow carousal-arrow"
-//         >
-//           {" "}89
-//           ➡️{" "}
-//         </div>
-//         <button onClick={deleteFileByOne} className="img-delet">
-//           ❌
-//         </button>
-//         <button className="save-btn">Save</button>
-//       </div>
-//     </>
-//   );
-// };
+                                            </div>
+                                        })
+                                    }
+                                </div>
+                            </>)
+                        }
 
-// export default Carousal;
+                    </>
+                }
+            </div>
+            <button onClick={handleOnSave} className='carousel-save-btn'>Save</button>
+        </div>
+    )
+}
+
+export default Carousel
