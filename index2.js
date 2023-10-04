@@ -7,7 +7,7 @@
 // function findElemenetsDivisibleBy(arr. num1, num2) - this function will return array
 
 function findElemenetsDivisibleBy(arr, num1, num2) {
-  arr.sort();
+    
   let result = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 3 == 0 && arr[i] % 2 == 0) {
