@@ -7,13 +7,12 @@
   font-family: "Roboto", sans-serif;
 }
 
-
 table > tbody > tr > td {
-  /* padding: 2px; */
+  padding: 2px;
   background-color: grey;
 }
 table > thead > th {
-  /* padding: 2px; */
+  padding: 2px;
   background-color: rgb(103, 94, 94);
 }
 button {
@@ -23,42 +22,43 @@ button {
   outline: 1px solid black;
   margin: 5px;
 }
-input{
+input {
   padding: 5px;
   margin-bottom: 10px;
 }
-textarea{
+textarea {
   padding: 5px;
 }
 
-.modal-div{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid rgb(240, 240, 240);
-    border-radius: 12px;
-    position:  absolute;
-    width: 250px;
-    height: 200px;
-    top: 70px;
-    left: 70px;
-    bottom: 70px;
-    border: none;
+.modal-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  background-color: red;
+  border: 2px solid rgb(240, 240, 240);
+  border-radius: 12px;
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 70px;
+  left: 70px;
+  bottom: 70px;
+  border: none;
+  position: absolute;
 }
-label{
+label {
   color: white;
 }
-.close-btn{
+.close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 2px;
 }
-.modal-form{
+.modal-form {
   margin-top: 50px;
 }

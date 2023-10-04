@@ -25,6 +25,7 @@ const Carousel = ({ imageList = [], onDelete = defaultFunction, defaultImage = "
     const handleOnSave = () => {
         onSave(imageList[page]);
     }
+
     return (
         <div className='carousel-box'>
             <div className='carousel-container'>
@@ -67,7 +68,10 @@ const Carousel = ({ imageList = [], onDelete = defaultFunction, defaultImage = "
                     </>
                 }
             </div>
+            <div className="carousel-btn">
             <button onClick={handleOnSave} className='carousel-save-btn'>Save</button>
+            {/* <button onClick={} className='carousel-delete-btn'>Delete</button> */}
+            </div>
         </div>
     )
 }

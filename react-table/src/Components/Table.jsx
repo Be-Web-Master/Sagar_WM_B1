@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import {apiData } from "../Data/apiData"
+import { apiData } from "../Data/apiData";
+import "../App.css"
+import  FileUpload  from "../Components/FileUpload/FileUpload";
 const Table = () => {
   const [tableState, setTableState] = useState({
     columns: [], // {columnName: '', columnComponentType: ''}
-    rows: [] // { cells: [] }
+    rows: [], // { cells: [] }
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [showAddRowAlert, setShowAddRowAlert] = useState(false);
@@ -12,7 +14,7 @@ const Table = () => {
   // const [columnName, setColumnName] = useState("");
   const [addColumnFormState, setAddColumnFormState] = useState({
     columnName: "",
-    columnComponentType: ""
+    columnComponentType: "",
   });
 
   const getRows = (items, columnTypes) => {
@@ -20,16 +22,22 @@ const Table = () => {
     return items.map((item) => {
       return {
         cells: columnNames.map((columnName) => ({
-          cellValue: item[columnName]
-        }))
+          cellValue: item[columnName],
+        })),
       };
     });
   };
 
   const getColumns = (columnTypes = {}) => {
+  const typeMap = {
+    input:Input,
+    textArea:TextArea,
+    fileUploadModal:FileUploadModal
+  }
+
     return Object.keys(columnTypes).map((key) => ({
       columnName: key,
-      columnComponentType: columnTypes[key]
+      columnComponentType: typeMap[columnTypes[key]] ,
     }));
   };
 
@@ -47,7 +55,7 @@ const Table = () => {
   const resetColumnForm = () => {
     setAddColumnFormState({
       columnName: "",
-      columnComponentType: ""
+      columnComponentType: "",
     });
   };
 
@@ -57,12 +65,12 @@ const Table = () => {
     const newTable = { ...tableState };
     newTable.columns.push({
       columnComponentType: addColumnFormState.columnComponentType,
-      columnName: columnName ?? `Col_${newTable.columns.length + 1}`
+      columnName: columnName ?? `Col_${newTable.columns.length + 1}`,
     });
     //  adding cells for columns
     newTable.rows.forEach((rowObj, rowIdx) =>
       rowObj.cells.push({
-        cellValue: `Cell_${rowIdx}_${newTable.columns.length}`
+        cellValue: `Cell_${rowIdx}_${newTable.columns.length}`,
       })
     );
     setTableState(newTable);
@@ -76,8 +84,8 @@ const Table = () => {
     const newTable = { ...tableState };
     newTable.rows.push({
       cells: newTable.columns.map((columnHeader, colIdx) => ({
-        cellValue: `Cell_${newTable.rows.length}_${colIdx}`
-      }))
+        cellValue: `Cell_${newTable.rows.length}_${colIdx}`,
+      })),
     });
     setTableState(newTable);
   };
@@ -87,12 +95,12 @@ const Table = () => {
     resetColumnForm,
     setModalOpen,
     addColumnFormState,
-    setAddColumnFormState
+    setAddColumnFormState,
   };
 
   const addRowAlertProps = {
     message: "Please add atleast 1 column to add rows.",
-    setShowAddRowAlert
+    setShowAddRowAlert,
   };
 
   // console.log({ addColumnFormState });
@@ -183,7 +191,7 @@ const AddColumnModal = (props) => {
     resetColumnForm,
     setModalOpen,
     addColumnFormState,
-    setAddColumnFormState
+    setAddColumnFormState,
   } = props;
   return (
     <ModalComponent setModalOpen={setModalOpen}>
@@ -194,7 +202,7 @@ const AddColumnModal = (props) => {
           onChange={(e) =>
             setAddColumnFormState((formState) => ({
               ...formState,
-              columnName: e.target.value
+              columnName: e.target.value,
             }))
           }
         />
@@ -205,7 +213,7 @@ const AddColumnModal = (props) => {
           onChange={(e) =>
             setAddColumnFormState((formState) => ({
               ...formState,
-              columnComponentType: e.target.value
+              columnComponentType: e.target.value,
             }))
           }
         />
@@ -240,6 +248,20 @@ const AddRowAlert = (props) => {
     <ModalComponent setModalOpen={setShowAddRowAlert}>
       <div>{message}</div>
     </ModalComponent>
+  );
+};
+const FileUploadModal = () => {
+  const [fileUploadModal, setFileUploadModal] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setFileUploadModal(true)}>Upload Images</button>
+      {fileUploadModal && (
+        <ModalComponent setModalOpen={setFileUploadModal}>
+          <FileUpload />
+        </ModalComponent>
+      )}
+    </>
   );
 };
 

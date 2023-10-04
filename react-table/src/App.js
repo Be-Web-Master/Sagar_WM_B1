@@ -4,8 +4,8 @@ const App = () => {
   return (
     <>
       <div className="app">
-        {/* <Table /> */}
-        <FileUpload />
+        <Table />
+        {/* <FileUpload /> */}
       </div>
     </>
   );

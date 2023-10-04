@@ -3,6 +3,7 @@ import DragAndDrop from '../DragAndDrop/DragAndDrop'
 import Carousel from '../Carousal/Carousal';
 import {Cloudinary} from "@cloudinary/url-gen";
 import { uploadToCloudinary } from '../../Utils/cloudinary';
+import "./fileUpload.css"
 const FileUpload = () => {
 
   const [imageList, setImageList] = useState([]);
@@ -28,10 +29,10 @@ const FileUpload = () => {
      }
    }
   return (
-    <>
+    <span className='upload-image'>
     <Carousel imageList={imageList} onDelete={onDelete} defaultImage={defaultImage} onSave={onSave} />
     <DragAndDrop title='Drop any file' onFileDrop={onFileDrop} />
-    </>
+    </span>
   )
 }
 

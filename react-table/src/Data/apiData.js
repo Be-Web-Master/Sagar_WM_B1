@@ -396,11 +396,10 @@ export const apiData = {
   metaData: {
     columnTypes: {
       barcode: "input",
-      itemName: "textarea",
+      itemName: "textArea",
       quality: "input",
       price: "input",
-      discountPercentage: "input",
-      priceAfterDiscount: "input",
+      images:"fileUploadModal"
     },
   },
 };
