@@ -7,14 +7,20 @@
 // function getEligibleMembers(arr) - this function will return an array with the satisfied conditions
 
 function getEligibleMembers(arr) {
-    const result = [];
-    for (let i = 0; i < arr.length; i++) {
-       if (arr[i].name.toLowerCase() && arr[i].age < 25) {
-        result.push(arr[i])
-       }
-
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (
+      (arr[i].name[0] === "a" ||
+        arr[i].name[0] === "A" ||
+        arr[i].name[0] === "b" ||
+        arr[i].name[0] === "B") &&
+      arr[i].age < 25
+    ) {
+      result.push(arr[i]);
     }
-    return result
+    //   console.log(arr[i].name[0]);
+  }
+  return result;
 }
 
 const arr = [
