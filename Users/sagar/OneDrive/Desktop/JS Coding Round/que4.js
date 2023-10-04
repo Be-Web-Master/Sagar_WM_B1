@@ -5,18 +5,18 @@
 // output - [{ name:"aaa", age:31 }, { name:"abc", age:21 }, { name:"bcd", age:11 }, { name:"cde", age:12 }]
 
 function sortWithName(arr) {
-
-  let brr = arr.sort((a, b) => {
-    if (a > b) {
-      b.name - a.name;
-    } else {
-      a.name - b.name;
+  return arr.sort((a, b) => {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -1;
     }
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return 1;
+    }
+    // return 0;
   });
-  return brr;
 }
 const arr = [
-  { name: "cde", age: 12 },
+  { name: "Cde", age: 12 },
   { name: "abc", age: 21 },
   { name: "aaa", age: 31 },
   { name: "bcd", age: 11 },
