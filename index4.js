@@ -16,5 +16,5 @@ function findRunningSum(arr) {
 
 const arr = [11, 20, 3, 14, 50, 9];
 // output - [ 11, 31, 34, 48, 98, 107 ]
-
-console.log(findRunningSum(arr));
+const output = findRunningSum(arr);
+console.log(output);
