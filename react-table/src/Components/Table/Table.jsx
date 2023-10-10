@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { apiData } from "../Data/apiData";
-import "../App.css"
-import  FileUpload  from "../Components/FileUpload/FileUpload";
+import { apiData } from "../../Data/apiData";
+import "../../App.css"
+import  FileUpload  from "../FileUpload/FileUpload";
 const Table = () => {
   const [tableState, setTableState] = useState({
     columns: [], // {columnName: '', columnComponentType: ''}
