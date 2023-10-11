@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+}
+/* .main-nav {
+  display: flex;
+  > li {
+    margin: 10px;
+    text-decoration: none;
+  }
+}
+#menu-ul-drop {
+  display: none;
+}
+#menu-ul:hover + #menu-ul-drop {
+  display: block !important;
+}
+
+#menu-ul-a-drop{
+  display: none;
+}
+#menu-ul-a:hover + #menu-ul-a-drop {
+  display: block;
+}
+ */
