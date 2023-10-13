@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  display: grid;
+  place-items: center;
+}
+.form-container {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(84, 118, 84, 0.74);
+  position: relative;
+  border-radius: 20px;
+  display: grid;
+  place-content: center;
+}
+.form-container > footer {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 300px;
+  /* background-color: red; */
+}
+.submitbtn{
+  background-color: rgb(64, 104, 198);
+  border: none;
+  width: 80px;
+  margin: 5px;
+  border-radius: 10px;
+}
+.prevbtn {
+  background-color: rgb(171, 84, 84);
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+
+}
+.nextbtn {
+  background-color: rgb(90, 88, 120);
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+
+}
+.box{
+display: flex;
+flex-direction: column;
+}
+input {
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+button  {
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  gap: 20px;
+  background-color: salmon;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.circle{
+  margin-right: 30px;
+  background: black;
+}
+.completed-page{
+  background-color: green;
+}

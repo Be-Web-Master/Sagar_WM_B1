@@ -1,13 +1,11 @@
-import React from 'react'
-import YtTask1 from './Task/yttask1'
+import React from "react";
+import MyForm from "./Task/practise/practise";
 
 const App = () => {
-  return (
-    <div>
+  return (<>
+      <MyForm/>
+    </>
+  );
+};
 
-      <YtTask1/>
-    </div>
-  )
-}
-
-export default App
+export default App;
