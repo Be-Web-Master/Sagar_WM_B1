@@ -10,11 +10,16 @@ const nums = [0, 1, 0, 3, 12];
 console.log(moveZeroes(nums));
 
 function moveZeroes(nums) {
-
+ let j = nums.length-1;
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
-      let temp = nums.splice(i,1)
-      nums.push(...temp)
+      let temp = nums[i]
+       nums[j--]=temp;
+       nums[i]=nums[i+1]
+
+
+    //   let temp = nums.splice(i,1)
+    //   nums.push(...temp)
     }
   }
   console.log(nums);
