@@ -5,7 +5,7 @@ import ValidtionForm from "./Task/ValidtionForm";
 const App = () => {
   return (
     <>
-      <ValidtionForm></ValidtionForm>
+      <MyForm />
     </>
   );
 };

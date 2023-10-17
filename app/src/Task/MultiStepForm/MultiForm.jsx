@@ -8,13 +8,19 @@ const MultiForm = () => {
   const [year, setYear] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const defaultValue = {
+    firstname:"",
+    lastname: "",
+    email: ""
+  }
+  const [formData, setFormData] = useState(defaultValue)
   const [count, setCount] = useState(1);
 
   const submitHandle = (e) => {
     e.preventDefault();
     setData([
       ...data,
-      { name: firstName + lastName, age: month + "/" + year, phone, email },
+     { ...formData },
     ]);
   };
 
@@ -25,6 +31,7 @@ const MultiForm = () => {
     setFirstName("");
     setLastName("");
     setPhone("");
+    setFormData(defaultValue)
   }, [data]);
   console.log(data);
   return (
@@ -49,9 +56,9 @@ const MultiForm = () => {
                   <div className="box">
                     <input
                       type="text"
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={(e) => setFormData({...formData, firstname:e.target.value})}
                       placeholder="First Name"
-                      value={firstName}
+                      value={formData.firstname}
                     />
                     <input
                       type="text"
