@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { apiData } from "../../Data/apiData";
-import "../../App.css"
-import  FileUpload  from "../FileUpload/FileUpload";
+import "../../App.css";
+import FileUpload from "../FileUpload/FileUpload";
+
 const Table = () => {
   const [tableState, setTableState] = useState({
     columns: [], // {columnName: '', columnComponentType: ''}
@@ -29,15 +30,15 @@ const Table = () => {
   };
 
   const getColumns = (columnTypes = {}) => {
-  const typeMap = {
-    input:Input,
-    textArea:TextArea,
-    fileUploadModal:FileUploadModal
-  }
+    const typeMap = {
+      input: Input,
+      textArea: TextArea,
+      fileUploadModal: FileUploadModal,
+    };
 
     return Object.keys(columnTypes).map((key) => ({
       columnName: key,
-      columnComponentType: typeMap[columnTypes[key]] ,
+      columnComponentType: typeMap[columnTypes[key]],
     }));
   };
 
@@ -163,6 +164,7 @@ const Input = (props) => {
   const { value, onChange } = props;
   return <input value={value} onChange={onChange} />;
 };
+
 const TextArea = (props) => {
   const { value, onChange } = props;
   return <textarea value={value} onChange={onChange}></textarea>;
@@ -250,6 +252,7 @@ const AddRowAlert = (props) => {
     </ModalComponent>
   );
 };
+
 const FileUploadModal = () => {
   const [fileUploadModal, setFileUploadModal] = useState(false);
 
@@ -264,6 +267,7 @@ const FileUploadModal = () => {
     </>
   );
 };
+
 
 // const [modalOpen, setModalOpen, ModalComponent] = useModal(AddColumnModal);
 // const useModal = (AddColumnModal) => {

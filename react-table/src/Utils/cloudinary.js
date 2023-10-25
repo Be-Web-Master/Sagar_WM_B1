@@ -2,7 +2,9 @@ const UPLOAD_PRESET = "a9lnbalt";
 const CLOUD_NAME = "dt6wxntgi";
 const API_KEY = "794878999514871";
 
+
 export const uploadToCloudinary = async (fileData) => {
+  
   const formData = new FormData();
   formData.append("file", fileData);
   formData.append("upload_preset", UPLOAD_PRESET);
