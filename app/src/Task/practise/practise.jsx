@@ -11,13 +11,12 @@ const MyForm = () => {
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    setFormData(initialData);
-  }, [data]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setData([{ ...formData }, ...data]);
+    setFormData(initialData);
   };
+  
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)}>

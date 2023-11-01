@@ -88,11 +88,10 @@ function ValidtionForm() {
             type="number"
             value={formData.age}
             onChange={(e) => {
-              console.log("hello");
               setFormData({ ...formData, age: e.target.value });
             }}
             onKeyDown={()=>{
-                
+
             }}
           />
           <span className="error">{formErrors.ageError}</span>
