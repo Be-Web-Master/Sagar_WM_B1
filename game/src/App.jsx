@@ -1,6 +1,106 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-const App = () => { 
+const App = () => {
+  const [firstName, setFirstName] = useState("");
+  const [secondName, setSecondName] = useState("");
+  const [players, setPlayers] = useState([]);
+  const [showGame, setShowGame] = useState(false);
+
+  return (
+    <div>
+      {showGame && <Game players={players} />}
+      {showGame || (
+        <UserForm
+          firstName={firstName}
+          setFirstName={setFirstName}
+          secondName={secondName}
+          setSecondName={setSecondName}
+          players={players}
+          setPlayers={setPlayers}
+          setShowGame={setShowGame}
+          showGame={showGame}
+        />
+      )}
+    </div>
+  );
+};
+const UserForm = (prop) => {
+  const [count, setCount] = useState(1);
+
+  const {
+    firstName,
+    setFirstName,
+    secondName,
+    setSecondName,
+    players,
+    setPlayers,
+    setShowGame,
+    showGame,
+  } = prop;
+  const submitHandle = (e) => {
+    e.preventDefault();
+    setPlayers([...players, { firstName: firstName, secondName: secondName }]);
+    setShowGame(!showGame);
+  };
+
+  useEffect(() => {
+    return () => {
+      setFirstName("");
+      setSecondName("");
+    };
+  }, [players]);
+
+  return (
+    <>
+      <div>
+        <form onSubmit={(e) => submitHandle(e)}>
+          {(function () {
+            switch (count) {
+              case "1":
+                return (
+                  <>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder=" First Player Name"
+                        name="firstName"
+                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstName}
+                      />
+                      <button onClick={() => setCount(count + 1)}>
+                      Next Player
+                    </button>
+                    </div>
+
+
+                  </>
+                );
+
+              case "2":
+                return (
+                  <>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder=" Second Player Name"
+                        name="secondName"
+                        onChange={(e) => setSecondName(e.target.value)}
+                        value={secondName}
+                      />
+                    </div>
+                  </>
+                );
+            }
+          })()}
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div></div>
+    </>
+  );
+};
+const Game = ({ players }) => {
   const [data, setData] = useState([
     ["", "", ""],
     ["", "", ""],
@@ -8,7 +108,9 @@ const App = () => {
   ]);
   const [isCheck, setIsCheck] = useState(false);
   const [playerA, setPlayerA] = useState(0);
+  const [playerAName, setPlayerAName] = useState("");
   const [playerB, setPlayerB] = useState(0);
+  const [playerBName, setPlayerBName] = useState("");
   const [clean, setClean] = useState(false);
   const [isWin, setIsWin] = useState(false);
   const clickHandle = (i, j, e) => {
@@ -47,13 +149,16 @@ const App = () => {
       countPosDaigonal === 3 ||
       countNegDaigonal === 3
     ) {
+      data[i][j] === "0" ? setPlayerA(playerA + 1) : setPlayerB(playerB + 1);
 
       setIsWin(!isWin);
-     data[i][j] === "0" ? setPlayerA(playerA + 1) : setPlayerB(playerB + 1);
-     alert("Win");
-  };
-
-
+      setTimeout(() => alert("win", 0));
+      setData([
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ]);
+    }
   };
   useEffect(() => {
     setClean(!clean);
@@ -69,11 +174,21 @@ const App = () => {
   }, [clean]);
 
   return (
-    <div>
+    <>
       <div className="winner"></div>
       <div className="show-score">
-        <span>Player[0] =&gt; {playerA}</span>
-        <span>Player[X] =&gt;{playerB}</span>
+        {players.map((obj) => {
+          return (
+            <>
+              <span>
+                {playerA} {obj.firstName}(0)
+              </span>
+              <span>
+                {playerB} {obj.secondName}(X)
+              </span>
+            </>
+          );
+        })}
       </div>
       <div onClick={(e) => clickHandle(e)} className="input-container">
         {data.map((subArr, i) => {
@@ -91,8 +206,7 @@ const App = () => {
         })}
       </div>
       <button onClick={() => setClean(!clean)}>Reset game</button>
-    </div>
+    </>
   );
 };
-
 export default App;
