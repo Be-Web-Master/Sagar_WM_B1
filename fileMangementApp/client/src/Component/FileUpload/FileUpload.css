@@ -1,0 +1,45 @@
+.upload-image {
+  position: absolute;
+}
+
+table {
+  > thead > th {
+    padding: 10px;
+  }
+  > tbody > tr > td {
+    padding: 10px;
+    > img {
+      width: 80px;
+    }
+  }
+}
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  > button {
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  > button:hover {
+    border: 1px solid grey;
+    scale: 1.2;
+  }
+  > button:active {
+    background-color: red;
+  }
+  > button:first-child {
+    background-color: #1e2a29;
+    color: #fcfffe;
+  }
+  > button:nth-child(2) {
+    background-color: #14212e;
+    color: #fcfffe;
+  }
+  > button:last-child {
+    background-color: #fcfcfc;
+    color: #262626;
+    border: 1px solid black !important;
+  }
+}

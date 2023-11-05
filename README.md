@@ -30,7 +30,6 @@ This project is a user interface (UI) application designed for efficient managem
    - Within the preview, users have options to delete the file or close the preview.
    - Clicking "Close" will promptly close the PDF preview.
    - Clicking "Delete" will initiate an API call to remove the file data from the database and cloudinary.
-
 5. **Sorting**
    - There should be a dropdown for sorting options.
    - By default, no sorting is applied.
