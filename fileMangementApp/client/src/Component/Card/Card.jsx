@@ -5,27 +5,31 @@ import { setImages } from "../../redux/imageSlice";
 import "./Card.css";
 import Portal from "../Portal/Portal";
 
-const Card = () => {
+const Card = ({ isRender, setIsRender }) => {
   const img = useSelector((state) => state.file.images);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isPdfModal, setIsPdfModal] = useState(false);
-  const [count, setCount] = useState(0);
-  const dispatch = useDispatch();
+  const [deleteId, setDeleteId] = useState(false);
+  const [isUrl, setIsUrl] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getImagesApi();
-      dispatch(setImages(data));
-      setCount(count + 1);
-    };
-    fetchData();
-  }, [isLoading]);
-  const deletCard = (publicId) => {
-    console.log("publicId");
-    // deleteImageApi(publicId);
-    setIsLoading(!isLoading);
-    setIsPdfModal(!isPdfModal);
+  const dispatch = useDispatch();
+  const fetchData = async () => {
+    const data = await getImagesApi();
+    dispatch(setImages(data));
   };
+  const rightBtn = "Pdf Delete";
+  const leftBtn = "Close";
+  useEffect(() => {
+    fetchData();
+  }, [isRender]);
+
+  const deletCard = async () => {
+    console.log("publicCard");
+    await deleteImageApi(deleteId);
+  };
+  const openPreveiw = (publicId, secureUrl) => {
+    setDeleteId(publicId);
+    setIsUrl(secureUrl);
+  };
+
   const nameFormater = (name) => name.split(".")[0];
   const sizeFormater = (bytes) => {
     let result = "";
@@ -42,7 +46,10 @@ const Card = () => {
           const { secureUrl, publicId, name, size } = data;
           return (
             <>
-              <div onClick={() => deletCard()} className="card">
+              <div
+                onClick={() => openPreveiw(publicId, secureUrl)}
+                className="card"
+              >
                 <span className="card-text">Name : {nameFormater(name)}</span>
                 <span className="card-text">Size : {sizeFormater(size)}</span>
                 <iframe key={idx} src={secureUrl} width="100%" />
@@ -50,14 +57,14 @@ const Card = () => {
             </>
           );
         })}
-        {/* {isPdfModal && (
+        {deleteId && (
           <Portal
-            // file={secureUrl}
-            deletCard={deletCard}
-            rightBtn={"Close"}
-            leftBtn={"Delete"}
+            file={isUrl}
+            removeFile={deletCard}
+            rightBtn={rightBtn}
+            leftBtn={leftBtn}
           />
-        )} */}
+        )}
       </div>
     </>
   );
@@ -65,9 +72,6 @@ const Card = () => {
 
 export default Card;
 
-function PdfPreview() {
-  return <></>;
-}
 {
   /* <FileList files={img} deletCard={deletCard} />
 

@@ -2,8 +2,15 @@
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 99999;
+  top: 10%;
+  background-color: rgba(255, 255, 255, 0.867);
+  left: 30%;
 }
-
+.pdf-preview:hover {
+  border: 2px solid red;
+}
 .button-container {
   display: flex;
   justify-content: space-between;

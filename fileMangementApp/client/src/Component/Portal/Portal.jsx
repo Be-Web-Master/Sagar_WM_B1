@@ -1,19 +1,26 @@
 import { createPortal } from "react-dom";
 import PdfViewer from "../PdfPreview/PdfViewer.jsx";
-
-const defaultFunction = () => {}
+import "./Portal.css";
+const defaultFunction = () => {};
 export default function Portal({
   file = "",
   removeFile = defaultFunction,
   saveFile = defaultFunction,
+  leftBtn,
+  rightBtn,
 }) {
-
   return (
-    <>
+    <div className="portal">
       {createPortal(
-        <PdfViewer removeFile={removeFile} saveFile={saveFile} file={file}/>,
+        <PdfViewer
+          rightBtn={rightBtn}
+          leftBtn={leftBtn}
+          removeFile={removeFile}
+          saveFile={saveFile}
+          file={file}
+        />,
         document.body
       )}
-    </>
+    </div>
   );
 }

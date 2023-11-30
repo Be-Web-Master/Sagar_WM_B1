@@ -1,5 +1,4 @@
 export const createUserApi = async ({ username, email, password }) => {
-  console.log({ username, email, password });
   try {
     const response = await fetch("http://localhost:6600/user/create-user", {
       method: "POST",
@@ -19,6 +18,7 @@ export const createUserApi = async ({ username, email, password }) => {
 };
 
 export async function logInUserApi({ username, password }) {
+  console.log({ username, password });
   try {
     const response = await fetch("http://localhost:6600/user/login-user", {
       method: "POST",

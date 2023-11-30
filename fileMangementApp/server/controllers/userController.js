@@ -1,7 +1,6 @@
 const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET, JWT_SECRET_KEY } = process.env;
 
 const createUser = async (req, res) => {
   try {
@@ -13,12 +12,12 @@ const createUser = async (req, res) => {
       email,
       password: encryptedPassword,
     });
-    console.log(user);
     res.status(200).json({ user });
   } catch (error) {
     res.status(400).json({ error });
   }
 };
+
 const logInUser = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -26,11 +25,10 @@ const logInUser = async (req, res) => {
     if (user) {
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
       if (isPasswordCorrect) {
-        const token = jwt.sign({ user }, JWT_SECRET);
+        const token = jwt.sign({ user }, process.env.JWT_SECRET);
         console.log({ token });
 
-        res.cookie(JWT_SECRET_KEY, token, {
-          maxAge: 600000,
+        res.cookie(process.env.JWT_SECRET, token, {
           httpOnly: true,
         });
         res.status(200).json({ msg: "Login succesfully" });
@@ -41,7 +39,7 @@ const logInUser = async (req, res) => {
       res.status(401).json({ msg: "incorrect username address" });
     }
   } catch (err) {
-    res.status(400).json({ err });
+    res.status(400).json({ err: "something is wrong" });
   }
 };
 const logOutUser = async (req, res) => {

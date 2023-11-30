@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./PdfViewer.css";
-import Portal from "../Portal/Portal";
+
 const defaultFunction = () => {};
 function PdfViewer({
   file,
   removeFile = defaultFunction,
   saveFile = defaultFunction,
-  leftBtn = "Cancel",
-  rightBtn = "Save",
-
+  leftBtn,
+  rightBtn,
 }) {
   const [isPdfOpen, setIsPdfOpen] = useState(true);
 
@@ -16,18 +15,24 @@ function PdfViewer({
     setIsPdfOpen(false);
     removeFile();
   };
+  console.log({rightBtn});
+  console.log({leftBtn});
+
   const savePdf = () => {
     saveFile();
-    closePdf();
+    if (leftBtn === "close") {
+      closePdf();
+    }
   };
+
   return (
     <div>
       {isPdfOpen && (
         <div className="pdf-preview">
           <iframe title="PDF Viewer" src={file} width="100%" height="500px" />
           <div className="button-container">
-            <button  onClick={savePdf}>{rightBtn}</button>
-            <button onClick={closePdf}>{leftBtn}</button>
+            <button onClick={savePdf}>{leftBtn}</button>
+            <button onClick={closePdf}>{rightBtn}</button>
           </div>
         </div>
       )}

@@ -19,7 +19,6 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const statusText = await logInUserApi(formData);
-    console.log({login:statusText});
     if (statusText === "OK") {
       navigate("/home");
     }
