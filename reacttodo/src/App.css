@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+form {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ border-radius: 10px;
+}
+label{
+  font-size: 25px;
+
+}
+
+hr {
+  margin: 20px;
+}
+input[type="text"] {
+  height: 50px;
+  padding: 10px;
+}
+
+textarea {
+  padding: 10px;
+}
+button{
+  /* padding: 10px; */
+ max-height: 40px;
+ width: 80px;
+ background-color: rgba(19, 19, 196, 0.826);
+ color:white;
+ border-radius: 10px;
+ border: none;
+}
